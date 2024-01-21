@@ -17,12 +17,12 @@ public class UserDao {
             new User(
                     "fahdboua@gmail.com",
                     "password",
-                    Collections.singleton(new SimpleGrantedAuthority("ROLE_ADMIN"))
+                    Collections.emptyList()
             ),
             new User(
                     "zyadboua@gmail.com",
                     "password",
-                    Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"))
+                    Collections.emptyList()
             )
     );
 
@@ -31,6 +31,6 @@ public class UserDao {
                 .stream()
                 .filter(u -> u.getUsername().equals(email))
                 .findFirst()
-                .orElseThrow(() -> new UsernameNotFoundException("userName doesnt exisr"));
+                .orElseThrow(() -> new UsernameNotFoundException("userName doesnt exist"));
     }
 }
